@@ -6,7 +6,9 @@ function ProtectedPage({children}) {
         return <Navigate to='/login' />
     }
   return (
-   {children}
+    <div className="">
+      {children}
+    </div>
   )
 }
 
