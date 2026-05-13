@@ -1,22 +1,12 @@
-import { useEffect, useState } from "react";
-import { api } from "../services/config";
 import Loader from "../components/Loader";
 import Table from "../components/Table";
+import { useProducts } from "../context/ProductContext";
+
+
 
 function ProductsList() {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    api
-      .get("/products")
-      .then((res) => {
-        setProducts(res.data.data);
-        console.log(res.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
+  const {products} = useProducts()
+console.log('products:', products);
 
   return (
     <div>
