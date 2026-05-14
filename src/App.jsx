@@ -11,7 +11,7 @@ function App() {
     <ProductProvider>
       <BrowserRouter>
         <Routes>
-          <Route path="/register" element={<RegisterPage />} />
+          <Route index path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route
             path="/products"

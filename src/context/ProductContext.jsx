@@ -28,8 +28,8 @@ const reducer = (state, action) => {
     case "EDIT_PRODUCT":
       return {
         ...state,
-        products: state.products.map(
-          (product) => product.id === action.payload.id ? action.payload : product
+        products: state.products.map((product) =>
+          product.id === action.payload.id ? action.payload : product,
         ),
       };
 

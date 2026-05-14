@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import styles from "../components/EditModal.module.css";
-import {updateProduct} from "../services/products";
+import { updateProduct } from "../services/products";
 
-
-
-function EditModal({ setEditingProduct, editingProduct, dispatch, setShowEditModal }) {
+function EditModal({
+  setEditingProduct,
+  editingProduct,
+  dispatch,
+  setShowEditModal,
+}) {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [quantity, setQuantity] = useState("");
@@ -19,34 +22,35 @@ function EditModal({ setEditingProduct, editingProduct, dispatch, setShowEditMod
 
   const updateHandler = async (e) => {
     e.preventDefault();
-    console.log(localStorage.getItem('token'));
-    
 
-    const updatedProduct = {
-      id: editingProduct.id,
-      name,
-      price,
-      quantity,
-    };
+    try {
+      const updatedProduct = {
+        id: editingProduct.id,
+        name,
+        price,
+        quantity,
+      };
 
-    await updateProduct( editingProduct.id, updatedProduct );
+      await updateProduct(editingProduct.id, updatedProduct);
 
-    dispatch({
-      type: "EDIT_PRODUCT",
-      payload: updatedProduct,
-    });
+      dispatch({
+        type: "EDIT_PRODUCT",
+        payload: updatedProduct,
+      });
 
-    setEditingProduct(null);
-    setShowEditModal(false)
+      setEditingProduct(null);
+      setShowEditModal(false);
+    } catch (error) {
+      console.log(error.response);
+    }
   };
 
-
-  const cancelEditHandler = () =>{
-    setShowEditModal(false)
-  }
+  const cancelEditHandler = () => {
+    setShowEditModal(false);
+  };
   return (
     <div className={styles.modal}>
-      <form className={styles.form}>
+      <form className={styles.form} onSubmit={updateHandler}>
         <label>نام کالا</label>
         <input
           type="text"
@@ -71,8 +75,10 @@ function EditModal({ setEditingProduct, editingProduct, dispatch, setShowEditMod
           onChange={(e) => setPrice(e.target.value)}
         />
         <div className="">
-          <button type="submit" onClick={updateHandler}>ثبت اطلاعات جدید</button>
-          <button type="button" onClick={cancelEditHandler}>انصراف</button>
+          <button type="submit">ثبت اطلاعات جدید</button>
+          <button type="button" onClick={cancelEditHandler}>
+            انصراف
+          </button>
         </div>
       </form>
     </div>
