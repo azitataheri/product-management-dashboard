@@ -98,7 +98,7 @@ function RegisterPage() {
             type="text"
             placeholder="نام کاربری"
             value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            onChange={(e) => setUsername(e.target.value.toLowerCase())}
           />
           {errors.username && <p className={styles.error}>{errors.username}</p>}
 
