@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { loginUser } from "../services/auth";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+
+import styles from "../pages/LoginPage.module.css";
+import union from "../assets/images/union.png";
 
 function LoginPage() {
   const [username, setUsername] = useState("");
@@ -9,7 +12,8 @@ function LoginPage() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const loginHandler = async () => {
+  const loginHandler = async (e) => {
+    e.preventDefault()
     setError("");
 
     if (!username || !password) {
@@ -39,24 +43,32 @@ function LoginPage() {
   };
 
   return (
-    <div>
-      <input
-        type="text"
-        placeholder="نام کاربری"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
+    <div className={styles.container}>
+      <h3 className={styles.mainTitle}>بوت کمپ بوتواستارت</h3>
+      <div className={styles.loginForm}>
+        <img src={union} alt="login logo" />
+        <p className={styles.loginTitle}>فرم ورود</p>
+        <form onSubmit={loginHandler}>
+          <input
+            type="text"
+            placeholder="نام کاربری"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
 
-      <input
-        type="password"
-        placeholder="رمز عبور"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      <button onClick={loginHandler} disabled={loading}>
-        {loading ? "loading" : "Login"}
-      </button>
+          <input
+            type="password"
+            placeholder="رمز عبور"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          {error && <p style={{ color: "red" }}>{error}</p>}
+          <button type="submit" disabled={loading}>
+            {loading ? "loading" : "Login"}
+          </button>
+          <Link className={styles.link} to="/register">ایجاد حساب کاربری!!</Link>
+        </form>
+      </div>
     </div>
   );
 }

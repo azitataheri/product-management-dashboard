@@ -66,3 +66,14 @@
     color: #3A8BED;
     font-size: 12px;
 }
+
+.passwordBox{
+
+    position: relative;
+}
+
+span.eyeBtn{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
