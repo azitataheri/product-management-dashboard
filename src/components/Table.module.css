@@ -1,22 +1,28 @@
+.wrapper{
+  overflow: hidden;
+  border-radius: 30px;
+}
 .table {
   border-collapse: collapse;
   width: 100%;
-  color: #000
+  color: #000;
 }
 
 .table td, th {
-  border: 1px solid #ddd;
+  /* border: 1px solid #ddd; */
   padding: 8px;
+  line-height: 40px;
 }
 
-.table tr:nth-child(even){background-color: #fff;}
+.table tr{background-color: #fff;}
 
-.table tr:hover {background-color: #ddd;}
+.table tr:hover {background-color: #fff;}
 
 .table th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: right;
-  background-color: #04AA6D;
-  color: white;
+  background-color: #F2F2F2;
+  color: #282828
 }
+

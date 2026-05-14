@@ -24,7 +24,7 @@ function Table() {
   };
 
   return (
-    <div>
+    <div className={styles.wrapper}>
       <table className={styles.table}>
         <tr>
           <th>نام کالا</th>
