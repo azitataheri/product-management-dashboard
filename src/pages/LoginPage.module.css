@@ -67,3 +67,15 @@
     font-size: 12px;
     text-decoration: none;
 }
+
+
+.passwordBox{
+
+    position: relative;
+}
+
+span.eyeBtn{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}

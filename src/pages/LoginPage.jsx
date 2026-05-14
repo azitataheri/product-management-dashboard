@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 import { loginUser } from "../services/auth";
 import styles from "../pages/LoginPage.module.css";
@@ -8,6 +9,7 @@ import union from "../assets/images/union.png";
 function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -50,6 +52,11 @@ function LoginPage() {
       setLoading(false);
     }
   };
+
+  // Toggle
+  const toggleEyeHandler = () => {
+    setShowPassword((prev) => !prev);
+  };
   return (
     <div className={styles.container}>
       <h3 className={styles.mainTitle}>بوت کمپ بوتواستارت</h3>
@@ -63,13 +70,21 @@ function LoginPage() {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
-
-          <input
-            type="password"
-            placeholder="رمز عبور"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
+          <div className={styles.passwordBox}>
+            <input
+              type={showPassword ? "text" : "password"}
+              placeholder="رمز عبور"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <span className={styles.eyeBtn} onClick={toggleEyeHandler}>
+              {showPassword ? (
+                <FaEye style={{ color: "#7a7777" }} />
+              ) : (
+                <FaEyeSlash style={{ color: "#7a7777" }} />
+              )}
+            </span>
+          </div>
           {error && <p style={{ color: "red" }}>{error}</p>}
           <button type="submit" disabled={loading}>
             {loading ? "loading" : "Login"}
