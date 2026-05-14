@@ -63,9 +63,10 @@
     cursor: pointer;
 }
 
-.registerForm small {
+.registerForm .link {
     color: #3A8BED;
     font-size: 12px;
+    text-decoration: none;
 }
 
 .passwordBox{

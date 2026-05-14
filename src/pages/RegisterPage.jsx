@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 import { registerUser } from "../services/auth";
@@ -141,7 +141,7 @@ function RegisterPage() {
             <button type="submit" disabled={loading}>
               {loading ? "کمی صبر کنید..." : "ثبت نام"}
             </button>
-            <small>حساب کاربری دارید؟</small>
+            <Link className={styles.link} to="/login">حساب کاربری دارید؟</Link>
           </div>
         </form>
       </div>
