@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { loginUser } from "../services/auth";
 import { useNavigate, Link } from "react-router-dom";
 
+import { loginUser } from "../services/auth";
 import styles from "../pages/LoginPage.module.css";
 import union from "../assets/images/union.png";
 
@@ -12,36 +12,44 @@ function LoginPage() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  // Login
   const loginHandler = async (e) => {
-    e.preventDefault()
-    setError("");
+    e.preventDefault();
 
-    if (!username || !password) {
-      setError("All files are required...");
+    setError("");
+    setLoading(true);
+
+    // validation
+    if (!username.trim() || !password) {
+      setError("All fields are required");
+      setLoading(false);
       return;
     }
 
     try {
-      setLoading(true);
-      const res = await loginUser({ username, password });
-      console.log(res.data);
+      const res = await loginUser({
+        username: username.trim().toLowerCase(),
+        password,
+      });
 
-      // Get token
-      const token = res.data.token;
+      const token = res?.data?.token;
 
-      // Save in localStorage
+      if (!token) {
+        setError("Invalid server response");
+        return;
+      }
+
       localStorage.setItem("token", token);
 
       navigate("/products");
-      console.log("res data is:", res.data);
-    } catch (error) {
-      setError("Login Failed");
-      console.log(error);
+    } catch (err) {
+      console.log(err);
+
+      setError(err?.response?.data?.message || "Login failed");
     } finally {
       setLoading(false);
     }
   };
-
   return (
     <div className={styles.container}>
       <h3 className={styles.mainTitle}>بوت کمپ بوتواستارت</h3>
@@ -66,7 +74,9 @@ function LoginPage() {
           <button type="submit" disabled={loading}>
             {loading ? "loading" : "Login"}
           </button>
-          <Link className={styles.link} to="/register">ایجاد حساب کاربری!!</Link>
+          <Link className={styles.link} to="/register">
+            ایجاد حساب کاربری!!
+          </Link>
         </form>
       </div>
     </div>

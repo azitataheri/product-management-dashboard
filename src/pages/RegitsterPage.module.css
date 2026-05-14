@@ -50,6 +50,7 @@
     color: #282828;
 }
 
+
 .registerForm button {
     width: 100%;
     background-color: #55A3F0;
@@ -76,4 +77,9 @@ span.eyeBtn{
     position: absolute;
     top: 10px;
     left: 10px;
+}
+.error{
+  color: rgb(255, 0, 64);
+  font-size: 11px;
+  padding-top: 2px;
 }
