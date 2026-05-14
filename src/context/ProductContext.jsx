@@ -33,6 +33,12 @@ const reducer = (state, action) => {
         ),
       };
 
+    case "ADD_PRODUCT":
+      return {
+        ...state,
+        products: [...state.products, action.payload],
+      };
+
     default:
       return state;
   }
@@ -50,7 +56,7 @@ function ProductProvider({ children }) {
           type: "SET_PRODUCTS",
           payload: res.data.data,
         });
-        console.log(res.data);
+        localStorage.setItem('products', JSON.stringify(res.data.data))
       })
       .catch((error) => {
         console.log(error);

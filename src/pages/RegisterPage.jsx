@@ -13,7 +13,7 @@ function RegisterPage() {
   // Handle register
   const handleRegister = async () => {
     setError("");
-    // Validaate
+    
     if (!username || !password || !confirmpassword) {
       setError("All fields are required");
       return;

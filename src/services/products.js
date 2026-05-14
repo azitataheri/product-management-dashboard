@@ -6,11 +6,23 @@ const updateProduct = (id, data) => {
     const token = localStorage.getItem('token');
     return api.put(`/products/${id}`, data, {
         headers: {
-            Authorization: token
+            Authorization: `Bearer ${token}`
+        }
+    })
+}
+
+
+const addProduct = ( data) => {
+    const token = localStorage.getItem('token');
+    
+    return api.post(`/products`, data, {
+        headers: {
+            Authorization: `Bearer ${token}`
         }
     })
 }
 
 export {
-    updateProduct
+    updateProduct,
+    addProduct
 }
