@@ -4,13 +4,100 @@
     background-color: #fff;
     border-radius: 16px;
     margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .productTable{
-    margin-top: 40px;
+    margin-top: 50px;
 }
 
 .actions{
   display: flex;
   justify-content: space-between;
 }
+
+.actions div:first-child{
+    display: flex;
+    align-items: center;
+    line-height: 30px;
+}
+
+.actions div:first-child img{
+    width: 30px;
+    height: 30px;
+}
+
+.actions div:first-child span{
+   font-size: 18px;
+   padding-right: 10px;
+font-weight: 400;
+}
+.actions button:last-child{
+    background-color: #55A3F0;
+    color: #fff;
+    border-radius: 10px;
+    border: none;
+    padding: 10px 15px;
+    transition: all 1s;
+}
+
+.actions button:last-child:hover{
+    background-color: #3385d8;
+}
+.avatarBox{
+    display: flex;
+    align-items: center;
+    border-right: 1px solid #eee;
+    padding: 0 30px;
+}
+
+.avatarBox ul{
+    list-style: none;
+    padding: 0;
+}
+.avatarBox ul li:first-child{
+    color: #333;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.avatarBox ul li:last-child{
+    color: #282828;
+    font-size: 10px;
+}
+.avatar{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20px;
+}
+
+.username{
+    font-size: 13px;
+}
+
+.search{
+   height: 100%;
+   position: relative;
+}
+
+.search input{
+    height: 100%;
+    padding-right: 40px;
+    border: none;
+    outline: none;
+    border-radius: 0 16px 16px 0;    
+}
+
+.search span{
+    position: absolute;
+    top: 22px;
+    right: 10px;
+    font-size: 30px;
+}
+

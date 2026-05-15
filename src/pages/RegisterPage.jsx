@@ -136,7 +136,7 @@ function RegisterPage() {
           </div>
           {errors.password && <p className={styles.error}>{errors.password}</p>}
 
-          {serverError && <p style={{ color: "red" }}>{serverError}</p>}
+          {serverError && <p style={{ color: "red", fontSize: '10px' }}>{serverError}</p>}
           <div>
             <button type="submit" disabled={loading}>
               {loading ? "کمی صبر کنید..." : "ثبت نام"}

@@ -42,6 +42,7 @@ function LoginPage() {
       }
 
       localStorage.setItem("token", token);
+      localStorage.setItem("username", username);
 
       navigate("/products");
     } catch (err) {

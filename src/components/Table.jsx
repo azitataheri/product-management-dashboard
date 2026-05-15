@@ -1,11 +1,11 @@
 import styles from "../components/Table.module.css";
-import { RiDeleteBinLine } from "react-icons/ri";
-import { FiEdit } from "react-icons/fi";
 import { useProducts } from "../context/ProductContext";
 import { useState } from "react";
 import DeleteModal from "../components/DeleteModal";
 import EditModal from "./EditModal";
 
+import trash from "../assets/images/trash.png";
+import edit from "../assets/images/edit.png";
 function Table() {
   const { products, dispatch } = useProducts();
   const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -31,7 +31,7 @@ function Table() {
           <th>موجودی </th>
           <th>قیمت</th>
           <th>شناسه کالا</th>
-          <th> عملیات</th>
+          <th> </th>
         </tr>
         {products.map((product) => (
           <tr key={product.id}>
@@ -39,12 +39,12 @@ function Table() {
             <td>{product.price}</td>
             <td>{product.quantity}</td>
             <td>{product.id}</td>
-            <td>
-              <button onClick={() => deleteHandler(product.id)}>
-                <RiDeleteBinLine />
-              </button>
+            <td className={styles.operation}>
               <button onClick={() => editHandler(product)}>
-                <FiEdit />
+                <img src={edit}/>
+              </button>
+              <button onClick={() => deleteHandler(product.id)}>
+               <img src={trash}/>
               </button>
             </td>
           </tr>
