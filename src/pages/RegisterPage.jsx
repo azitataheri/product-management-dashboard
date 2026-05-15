@@ -3,6 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 import { registerUser } from "../services/auth";
+
 import union from "../assets/images/union.png";
 import styles from "../pages/RegitsterPage.module.css";
 
@@ -18,6 +19,7 @@ function RegisterPage() {
   const [serverError, setServerError] = useState("");
   const navigate = useNavigate();
 
+  
   const eyePasswordHandler = () => {
     setShowPassword(!showPassword);
   };
@@ -27,18 +29,18 @@ function RegisterPage() {
   };
 
 
-  // validate
+  // Validate
   const validate = () => {
     const newErrors = {};
 
-    // username
+    // Username
     if (!username.trim()) {
       newErrors.username = "نام کاربری الزامی است";
     } else if (!/^[a-zA-Z0-9_]+$/.test(username)) {
       newErrors.username = "فقط حروف انگلیسی مجاز است";
     }
 
-    // password
+    // Password
     if (!password) {
       newErrors.password = "رمز عبور الزامی است";
     } else if (password.length < 6) {
@@ -139,7 +141,7 @@ function RegisterPage() {
           {serverError && <p style={{ color: "red", fontSize: '10px' }}>{serverError}</p>}
           <div>
             <button type="submit" disabled={loading}>
-              {loading ? "کمی صبر کنید..." : "ثبت نام"}
+              {loading ? "loading..." : "ثبت نام"}
             </button>
             <Link className={styles.link} to="/login">حساب کاربری دارید؟</Link>
           </div>

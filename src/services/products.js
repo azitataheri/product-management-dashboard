@@ -12,9 +12,9 @@ const updateProduct = (id, data) => {
 }
 
 
-const addProduct = ( data) => {
+const addProduct = (data) => {
     const token = localStorage.getItem('token');
-    
+
     return api.post(`/products`, data, {
         headers: {
             Authorization: `Bearer ${token}`

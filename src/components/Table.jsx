@@ -1,23 +1,28 @@
-import styles from "../components/Table.module.css";
 import { useProducts } from "../context/ProductContext";
 import { useState } from "react";
+
+
 import DeleteModal from "../components/DeleteModal";
 import EditModal from "./EditModal";
-
 import trash from "../assets/images/trash.png";
 import edit from "../assets/images/edit.png";
-function Table() {
-  const { products, dispatch } = useProducts();
+import styles from "../components/Table.module.css";
+
+
+function Table({products}) {
+  const { dispatch } = useProducts();
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
   const [editingProduct, setEditingProduct] = useState(null);
   const [selectId, setSelectId] = useState(null);
 
+ // Delete icon handler
   const deleteHandler = (id) => {
     setSelectId(id);
     setShowDeleteModal(true);
   };
 
+  // Edit icon handler
   const editHandler = (product) => {
     setShowEditModal(true);
     setEditingProduct(product);

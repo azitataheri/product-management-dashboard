@@ -8,10 +8,58 @@
     display: flex;
     justify-content: center;
     align-items: center;
+        backdrop-filter: blur(10px)
+
 }
 
 .modalBox{
     background: #fff;
-    padding: 20px;
+    padding: 20px 50px;
     border-radius: 10px;
+    width: 90%;
+    max-width: 350px;
+}
+
+.modalBox p{
+    font-size: 16px;
+    text-align: center;
+}
+
+.modalBox img{
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+
+.deleteBtns {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.deleteBtns button{
+    padding: 4px 45px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+.deleteBtns button:first-child{
+    background-color: #F43F5E;
+    color: #fff;
+}
+
+.deleteBtns button:first-child:hover{
+    background-color: #df2544;
+    color: #fff;
+}
+
+.deleteBtns button:last-child{
+    background-color: #DFDFDF;
+}
+
+.deleteBtns button:last-child:hover{
+    background-color: #c5bdbd;
 }

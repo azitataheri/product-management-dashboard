@@ -3,6 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 import { loginUser } from "../services/auth";
+
 import styles from "../pages/LoginPage.module.css";
 import union from "../assets/images/union.png";
 
@@ -54,10 +55,12 @@ function LoginPage() {
     }
   };
 
-  // Toggle
+  // Toggle eye icon
   const toggleEyeHandler = () => {
     setShowPassword((prev) => !prev);
   };
+
+  
   return (
     <div className={styles.container}>
       <h3 className={styles.mainTitle}>بوت کمپ بوتواستارت</h3>
@@ -88,7 +91,7 @@ function LoginPage() {
           </div>
           {error && <p style={{ color: "red" }}>{error}</p>}
           <button type="submit" disabled={loading}>
-            {loading ? "loading" : "Login"}
+            {loading ? "loading" : "ورود"}
           </button>
           <Link className={styles.link} to="/register">
             ایجاد حساب کاربری!!

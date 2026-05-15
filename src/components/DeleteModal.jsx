@@ -1,5 +1,5 @@
 import styles from '../components/DeleteModal.module.css'
-
+import close from '../assets/images/close.png'
 function Modal({ setSelectId, setShowDeleteModal, dispatch, selectId }) {
   const confirmDelete = () => {
     dispatch({
@@ -18,9 +18,12 @@ function Modal({ setSelectId, setShowDeleteModal, dispatch, selectId }) {
   return (
     <div className={styles.modal}>
       <div className={styles.modalBox}>
-        <p>ایا از حذف این محصول مطمین هستید؟</p>
-        <button onClick={confirmDelete}>بله</button>
-        <button onClick={cancelDelete}>خیر</button>
+        <img src={close} alt='close image'/>
+        <p>آیا از حذف این محصول مطمئنید؟</p>
+        <div className={styles.deleteBtns}>          
+          <button onClick={confirmDelete}>بله</button>
+          <button onClick={cancelDelete}>لغو</button>
+        </div>
       </div>
     </div>
   );

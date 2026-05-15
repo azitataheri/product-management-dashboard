@@ -1,5 +1,5 @@
 .modal{
-      position: fixed;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -8,14 +8,74 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    backdrop-filter: blur(10px)
+}
+
+.modalBox{
+    background-color: #fff;
+    height: fit-content;
+    border-radius: 30px;
+    padding: 15px 5px 20px ;
+    width: 60%;
+    max-width:370px;
+}
+
+.modalBox p{
+    text-align: center;
+    font-weight: bold;
 }
 
 .form{
-    width: 300px;
-    height: 200px;
-    border:  2px solid red;
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    
+   flex-direction: column;
+    align-items: center;  
+}
+
+.form input{
+    background-color: #F2F2F2;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    padding: 6px;
+    margin-bottom: 15px;
+    color:#282828
+}
+
+
+.form label{
+    font-size: 12px;
+    padding-bottom: 5px;
+}
+.formFields{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+.modalBtns{
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-around
+}
+
+.modalBtns button{
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all .3s;
+}
+.modalBtns button:first-child{
+    background-color: #55A3F0;
+    color: #fff;
+      padding: 4px 30px;
+}
+
+.modalBtns button:first-child:hover{
+    background-color: #3385d8;
+}
+.modalBtns button:last-child{
+    padding: 1px 54px;
+    background-color: #c5bdbd;
+    margin-right: 20px;
+    color: #282828;
 }

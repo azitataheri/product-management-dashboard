@@ -8,7 +8,7 @@ const api = axios.create({
 })
 
 
-// interceptors
+// Interceptors
 api.interceptors.response.use(
     (reponse) => reponse,
     (error) => Promise.reject(error))

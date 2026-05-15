@@ -56,7 +56,7 @@ function ProductProvider({ children }) {
           type: "SET_PRODUCTS",
           payload: res.data.data,
         });
-        localStorage.setItem('products', JSON.stringify(res.data.data))
+        localStorage.setItem("products", JSON.stringify(res.data.data));
       })
       .catch((error) => {
         console.log(error);
@@ -72,8 +72,7 @@ function ProductProvider({ children }) {
 
 // Custome hook
 const useProducts = () => {
-  const products = useContext(ProductContext);
-  return products;
+  return useContext(ProductContext);
 };
 
 export default ProductProvider;
